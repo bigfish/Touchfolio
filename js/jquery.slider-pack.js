@@ -1815,6 +1815,14 @@
 
 			return item;
 		},
+
+                _getCurrentImageTitle: function () {
+                    var title = "";
+                    var currentItem = this._getItem( this.currAlbumId, this.currItemId );
+                    title = currentItem.find('a').text();
+                    return title;
+                },
+
 		_updateCurrItemId:function(albumId,id) {
 			var self = this;
 
@@ -1859,6 +1867,8 @@
 
 			function updateCurrImage() {
 				self._itemCountIndicator.text(''+ (self.currItemId + 1) + ' of ' + self.currAlbumNumItems );
+                                //override albumNameIndicator to show image title
+                                self._albumNameIndicator.text( self._getCurrentImageTitle() );
 			}
 			if(axis === 'y') {
 
