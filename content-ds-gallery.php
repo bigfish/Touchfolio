@@ -138,13 +138,24 @@
 				}
 
 				$desc = get_post( $attachment_id_item )->post_content;
+  
+        $attachment = get_post( $attachment_id_item );
+        $img_title = htmlspecialchars($attachment->post_title);
+        /*return array(
+          'alt' => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
+          'caption' => $attachment->post_excerpt,
+          'description' => $attachment->post_content,
+          'href' => get_permalink( $attachment->ID ),
+          'src' => $attachment->guid,
+          'title' => $attachment->post_title
+        );*/
 
 
 				
 				if(!$alt_attr) 
 					$alt_attr = $image_urls[$j];
 				
-				$album_data .= "\t\t<li class=\"two-dim-item\"{$video_data}{$img_scale} data-img-desc=\"{$desc}\" data-img-width=\"{$image_widths[$j]}\" data-img-height=\"{$image_heights[$j]}\">";
+				$album_data .= "\t\t<li class=\"two-dim-item\"{$video_data}{$img_scale} data-img-title=\"{$img_title}\" data-img-desc=\"{$desc}\" data-img-width=\"{$image_widths[$j]}\" data-img-height=\"{$image_heights[$j]}\">";
 				$album_data .= "<a href=\"{$image_urls[$j]}\">{$alt_attr}</a>";
 
 				$album_data .=  "</li>\n";

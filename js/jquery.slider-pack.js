@@ -1819,7 +1819,9 @@
                 _getCurrentImageTitle: function () {
                     var title = "";
                     var currentItem = this._getItem( this.currAlbumId, this.currItemId );
-                    title = currentItem.find('a').text();
+
+                    title = currentItem.data('img-title') || currentItem.find('a').text();
+
                     return title;
                 },
 
