@@ -777,7 +777,7 @@
                 },
                 _getImgId: function (imgTitle) {
                     
-                    var imgId = 0,i, item, imgTitle;
+                    var imgId = 0,i, item, imgName;
 
                     var album = this.albumsArr[this.currAlbumId];
 
@@ -790,8 +790,8 @@
                         if(items) {
                             for (i = 0; i < items.length; i++) {
                                 item = items[i];
-                                itemTitle = this._getItemLinkText(item);
-                                if (itemTitle === imgTitle) {
+                                imgName = this._getItemFileName(item);
+                                if (imgName === imgTitle) {
                                     return i;//assume same as index
                                 }
                             };
